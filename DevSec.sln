@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevSec.Client", "DevSec.API\DevSec.Client.csproj", "{46F7C26E-47C5-4159-87CF-45D38904130E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{C72F6840-E88B-4A02-B3A7-31D0333CE9A5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{5EC85086-725B-403B-9F97-5BA7EFBB5CFC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevSec.Client", "src\client\DevSec.Client\DevSec.Client.csproj", "{46F7C26E-47C5-4159-87CF-45D38904130E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevSec.Client.Infrastructure", "src\client\DevSec.Client.Infrastructure\DevSec.Client.Infrastructure.csproj", "{81618E2E-52D2-402E-AB9A-6C9F95B34ACF}"
 EndProject
