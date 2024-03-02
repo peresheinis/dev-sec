@@ -7,6 +7,13 @@ public sealed class DeviceLocation {
         Longtitude = longtitude;
     }
 
+    /// <summary>
+    /// Долгота
+    /// </summary>
     public float Latitude { get; private set; }
+
+    /// <summary>
+    /// Широта
+    /// </summary>
     public float Longtitude { get; private set; }
 }

@@ -2,5 +2,8 @@
 
 public sealed class VideoSource(string sourcePath) : EntityBase<Guid>
 { 
-    public string Path { get; private set; } = sourcePath;
+    /// <summary>
+    /// Источник видео
+    /// </summary>
+    public string Path { get; private set; } = sourcePath ?? throw new ArgumentNullException(nameof(sourcePath));
 }

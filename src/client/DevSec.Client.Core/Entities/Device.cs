@@ -4,8 +4,7 @@ public sealed class Device : EntityBase<Guid>
 {
     private List<DeviceGroup> _groups;
 
-    public Device(
-        string name,
+    public Device(string name,
         DeviceVideo video,
         DeviceConfiguration configuration,
         DeviceColor? color = null,

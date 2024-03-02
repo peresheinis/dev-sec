@@ -2,5 +2,8 @@
 
 public sealed class DeviceSound(SoundSource source) : EntityBase
 {
-    public SoundSource Source { get; private set; } = source;
+    /// <summary>
+    /// Источник звук
+    /// </summary>
+    public SoundSource Source { get; private set; } = source ?? throw new ArgumentNullException(nameof(source));
 }
