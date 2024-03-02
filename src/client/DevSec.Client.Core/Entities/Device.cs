@@ -3,11 +3,12 @@
 public sealed class Device : EntityBase<Guid>
 {
     private List<DeviceGroup> _groups;
+    private Device() { }
 
     public Device(string name,
         DeviceVideo video,
         DeviceConfiguration configuration,
-        DeviceColor? color = null,
+        DeviceIconColor? color = null,
         DeviceSound? sound = null,
         DeviceGroup? group = null,
         DeviceLocation? location = null)
@@ -40,7 +41,7 @@ public sealed class Device : EntityBase<Guid>
     /// <summary>
     /// Цвет иконки устройства
     /// </summary>
-    public DeviceColor? Color { get; private set; }
+    public DeviceIconColor? Color { get; private set; }
 
     /// <summary>
     /// Группа с устройствами
@@ -86,7 +87,7 @@ public sealed class Device : EntityBase<Guid>
     /// </summary>
     /// <param name="deviceColor"></param>
     /// <exception cref="ArgumentNullException"></exception>
-    public void SetColor(DeviceColor deviceColor)
+    public void SetColor(DeviceIconColor deviceColor)
     {
         if (deviceColor is null)
         {

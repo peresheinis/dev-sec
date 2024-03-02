@@ -1,9 +1,10 @@
 ﻿namespace DevSec.Client.Core.Entities;
 
-public sealed class DeviceColor
+public sealed class DeviceIconColor
 {
-    private DeviceColor() { }
-    private DeviceColor(byte red, byte green, byte blue, float opacity)
+    private DeviceIconColor() { }
+
+    private DeviceIconColor(byte red, byte green, byte blue, float opacity)
     {
         if (opacity < 0 || opacity > 1)
         {
@@ -38,8 +39,8 @@ public sealed class DeviceColor
     public float Opacity { get; private set; }
 
     /// <summary>
-    /// Создать экземпляр класса <see cref="DeviceColor"/> с прозрачным цветом
+    /// Создать экземпляр класса <see cref="DeviceIconColor"/> с прозрачным цветом
     /// </summary>
     /// <returns></returns>
-    public static DeviceColor Transparent() => new DeviceColor(0, 0, 0, 0);
+    public static DeviceIconColor Transparent() => new DeviceIconColor(0, 0, 0, 0);
 }

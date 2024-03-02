@@ -1,7 +1,10 @@
 ﻿namespace DevSec.Client.Core.Entities;
 
-public sealed class DeviceLocation {
-    public DeviceLocation(float latitude, float longtitude) 
+public sealed class DeviceLocation
+{
+    private DeviceLocation() { }
+
+    public DeviceLocation(float latitude, float longtitude)
     {
         Latitude = latitude;
         Longtitude = longtitude;

@@ -1,9 +1,15 @@
 ﻿namespace DevSec.Client.Core.Entities;
 
-public sealed class VideoSource(string sourcePath) : EntityBase<Guid>
-{ 
+public sealed class VideoSource : EntityBase<Guid>
+{
+    private VideoSource() { }
+
+    public VideoSource(string moniker)  {
+        Moniker = moniker;
+    }
+
     /// <summary>
     /// Источник видео
     /// </summary>
-    public string Path { get; private set; } = sourcePath ?? throw new ArgumentNullException(nameof(sourcePath));
+    public string Moniker { get; private set; } 
 }
