@@ -15,18 +15,18 @@ public static class CreateDevice
         DeviceSoundDTO? Sound,
         DeviceLocationDTO? Location,
         DeviceIconColorDTO? Color,
-        DeviceConfigurationDTO? Configuration) : IRequest<Device>;
+        DeviceConfigurationDTO? Configuration) : IRequest<DeviceDTO>;
 
     internal class RequestHandler(
         IMapper mapper,
         IUnitOfWork unitOfWork,
-        IDeviceRepository deviceRepository) : IRequestHandler<Request, Device>
+        IDeviceRepository deviceRepository) : IRequestHandler<Request, DeviceDTO>
     {
         private readonly IMapper _mapper = mapper;
         private readonly IUnitOfWork _unitOfWork = unitOfWork;
         private readonly IDeviceRepository _deviceRepository = deviceRepository;
 
-        public async Task<Device> Handle(Request request, CancellationToken cancellationToken)
+        public async Task<DeviceDTO> Handle(Request request, CancellationToken cancellationToken)
         {
             var device = new Device(
                 request.Name,
@@ -39,7 +39,7 @@ public static class CreateDevice
             await _deviceRepository.AddAsync(device, cancellationToken);
             await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-            return device;
+            return _mapper.Map<DeviceDTO>(device);
         }
     }
 }
