@@ -1,13 +1,11 @@
-﻿using DevSec.Client.Commands;
+﻿using AForge.Video.DirectShow;
+using DevSec.Client.Commands;
 using DevSec.Client.Core.Entities;
-using DevSec.Client.Core.Repositories;
 using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using PagedList;
-using DevSec.Client.Extensions;
-using AutoMapper;
-using AForge.Video.DirectShow;
 using DevSec.Client.Services;
+using Kernel.Shared.Extensions;
+using Microsoft.AspNetCore.Mvc;
+using DevSec.Client.Core.Repositories;
 
 namespace DevSec.Client.Controllers;
 
@@ -15,7 +13,7 @@ namespace DevSec.Client.Controllers;
 public class DevicesController : ControllerBase
 {
     [HttpGet]
-    public Task<IPagedList<Device>> GetDevices(
+    public Task<PagedList<Device>> GetDevices(
         int page,
         int pageSize,
         [FromServices] IDeviceRepository deviceRepository,
@@ -31,7 +29,6 @@ public class DevicesController : ControllerBase
 
     [HttpGet("CaptureDevices")]
     public Task<IReadOnlyCollection<FilterInfo>> GetCaptureDevices(
-        [FromServices] IDevicesService devicesService,
-        CancellationToken cancellationToken = default) =>
+        [FromServices] IDevicesService devicesService) =>
         Task.FromResult(devicesService.GetVideoDevices());
 }

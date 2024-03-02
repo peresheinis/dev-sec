@@ -1,10 +1,10 @@
 ﻿using DevSec.Client.Core.Entities;
-using PagedList;
+using Kernel.Shared.Extensions;
 
 namespace DevSec.Client.Core.Repositories;
 
 public interface IPagedRepositoryBase<TEntity>
     where TEntity : EntityBase
 { 
-    public Task<IPagedList<TEntity>> GetAsync(int page, int pageSize, CancellationToken cancellationToken = default);
+    public Task<PagedList<TEntity>> GetAsync(int page, int pageSize, CancellationToken cancellationToken = default);
 }

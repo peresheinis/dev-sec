@@ -1,8 +1,7 @@
 ﻿using DevSec.Client.Core.Entities;
 using DevSec.Client.Core.Repositories;
-using DevSec.Client.Infrastructure.Extensions;
+using Kernel.Shared.Extensions;
 using Microsoft.EntityFrameworkCore;
-using PagedList;
 
 namespace DevSec.Client.Infrastructure.Repositories;
 
@@ -13,7 +12,7 @@ public class DeviceRepository : RepositoryBase<Device>, IDeviceRepository
     public async Task AddAsync(Device entity, CancellationToken cancellationToken = default) => 
         await Set.AddAsync(entity, cancellationToken);
 
-    public async Task<IPagedList<Device>> GetAsync(int page, int pageSize, CancellationToken cancellationToken = default) =>
+    public async Task<PagedList<Device>> GetAsync(int page, int pageSize, CancellationToken cancellationToken = default) =>
         await Set.ToPagedListAsync(page, pageSize, cancellationToken);
 
     public async Task<Device?> GetByIdAsync(Guid key, CancellationToken cancellationToken = default) =>
