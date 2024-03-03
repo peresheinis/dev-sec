@@ -1,10 +1,14 @@
+using DevSec.Client.Application.Queries;
+using DevSec.Client.Application.Services;
 using DevSec.Client.Core;
 using DevSec.Client.Core.Repositories;
+using DevSec.Client.Endpoints.Devices;
 using DevSec.Client.Infrastructure;
 using DevSec.Client.Infrastructure.Repositories;
 using DevSec.Client.Profiles;
-using DevSec.Client.Services;
+using MicroEndpoints.Extensions;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +16,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IDevicesService, DevicesService>();
-builder.Services.AddMediatR(configuration => configuration.RegisterServicesFromAssembly(typeof(Program).Assembly));
+builder.Services.AddMediatR(configuration => configuration.RegisterServicesFromAssembly(typeof(GetCaptureDevices).Assembly));
+builder.Services.AddMicroEndpoints(Assembly.GetAssembly(typeof(GetCaptureDevicesEndpoint)));
 builder.Services.AddDbContext<DatabaseContext>(configuration => configuration.UseSqlite("Filename=database.db"));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
@@ -30,9 +35,8 @@ if (app.Environment.IsDevelopment())
 }
 
 
+app.UseMicroEndpoints();
 app.UseAuthorization();
-app.MapControllers();
-
 
 await app.Services
     .CreateScope().ServiceProvider

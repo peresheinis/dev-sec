@@ -1,6 +1,6 @@
 ﻿using AForge.Video.DirectShow;
 
-namespace DevSec.Client.Services;
+namespace DevSec.Client.Application.Services;
 
 public interface IVideoCaptureDevices
 {
@@ -30,3 +30,4 @@ public sealed class DevicesService : IDevicesService
             .ToList();
     }
 }
+
