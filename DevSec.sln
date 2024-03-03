@@ -7,17 +7,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{C72F68
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{5EC85086-725B-403B-9F97-5BA7EFBB5CFC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevSec.Client", "src\client\DevSec.Client\DevSec.Client.csproj", "{46F7C26E-47C5-4159-87CF-45D38904130E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevSec.Client.API", "src\client\DevSec.Client\DevSec.Client.API.csproj", "{46F7C26E-47C5-4159-87CF-45D38904130E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevSec.Client.Infrastructure", "src\client\DevSec.Client.Infrastructure\DevSec.Client.Infrastructure.csproj", "{81618E2E-52D2-402E-AB9A-6C9F95B34ACF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevSec.Client.Core", "src\client\DevSec.Client.Core\DevSec.Client.Core.csproj", "{03A7F27D-8666-43AE-A0F8-DDA433F004A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevSec.Client.Domain", "src\client\DevSec.Client.Domain\DevSec.Client.Domain.csproj", "{03A7F27D-8666-43AE-A0F8-DDA433F004A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevSec.Client.Shared", "src\client\DevSec.Client.Shared\DevSec.Client.Shared.csproj", "{FEF744DB-0197-4036-B321-E97BB08F1716}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevSec.Client.Shared", "src\client\DevSec.Client.Shared\DevSec.Client.Shared.csproj", "{FEF744DB-0197-4036-B321-E97BB08F1716}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{63ECEFFF-B7D8-4C66-9975-3904DBA648F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kernel.Shared", "src\kernel\Kernel.Shared\Kernel.Shared.csproj", "{9725F57F-4086-4D8D-B28F-82F26B7F3FAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kernel.Shared", "src\kernel\Kernel.Shared\Kernel.Shared.csproj", "{9725F57F-4086-4D8D-B28F-82F26B7F3FAF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevSec.Client.Endpoints", "src\client\DevSec.Client.Endpoints\DevSec.Client.Endpoints.csproj", "{4F4958F0-400A-4E8D-AD82-AC8666F02952}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevSec.Client.Application", "src\client\DevSec.Client.Application\DevSec.Client.Application.csproj", "{3AF7F250-DDEA-4337-AEFF-A53AD0ADD2A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{9725F57F-4086-4D8D-B28F-82F26B7F3FAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9725F57F-4086-4D8D-B28F-82F26B7F3FAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9725F57F-4086-4D8D-B28F-82F26B7F3FAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F4958F0-400A-4E8D-AD82-AC8666F02952}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F4958F0-400A-4E8D-AD82-AC8666F02952}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F4958F0-400A-4E8D-AD82-AC8666F02952}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F4958F0-400A-4E8D-AD82-AC8666F02952}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AF7F250-DDEA-4337-AEFF-A53AD0ADD2A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AF7F250-DDEA-4337-AEFF-A53AD0ADD2A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AF7F250-DDEA-4337-AEFF-A53AD0ADD2A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AF7F250-DDEA-4337-AEFF-A53AD0ADD2A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +67,8 @@ Global
 		{03A7F27D-8666-43AE-A0F8-DDA433F004A2} = {C72F6840-E88B-4A02-B3A7-31D0333CE9A5}
 		{FEF744DB-0197-4036-B321-E97BB08F1716} = {C72F6840-E88B-4A02-B3A7-31D0333CE9A5}
 		{9725F57F-4086-4D8D-B28F-82F26B7F3FAF} = {63ECEFFF-B7D8-4C66-9975-3904DBA648F0}
+		{4F4958F0-400A-4E8D-AD82-AC8666F02952} = {C72F6840-E88B-4A02-B3A7-31D0333CE9A5}
+		{3AF7F250-DDEA-4337-AEFF-A53AD0ADD2A3} = {C72F6840-E88B-4A02-B3A7-31D0333CE9A5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1EB7114E-7F23-410A-AA2E-03462D7900E7}

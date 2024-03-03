@@ -1,7 +1,6 @@
 ﻿using AForge.Video.DirectShow;
 using AutoMapper;
 using DevSec.Client.Commands;
-using DevSec.Client.Core.Entities;
 using DevSec.Client.Core.Repositories;
 using DevSec.Client.Extensions;
 using DevSec.Client.Services;

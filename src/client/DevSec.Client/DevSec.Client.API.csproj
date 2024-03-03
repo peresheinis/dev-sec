@@ -23,7 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DevSec.Client.Core\DevSec.Client.Core.csproj" />
+    <ProjectReference Include="..\DevSec.Client.Application\DevSec.Client.Application.csproj" />
+    <ProjectReference Include="..\DevSec.Client.Domain\DevSec.Client.Domain.csproj" />
     <ProjectReference Include="..\DevSec.Client.Infrastructure\DevSec.Client.Infrastructure.csproj" />
     <ProjectReference Include="..\DevSec.Client.Shared\DevSec.Client.Shared.csproj" />
   </ItemGroup>
