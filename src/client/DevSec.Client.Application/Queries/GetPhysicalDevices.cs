@@ -6,7 +6,7 @@ using MediatR;
 
 namespace DevSec.Client.Application.Queries;
 
-public static class GetCaptureDevices
+public static class GetPhysicalDevices
 {
     public record Query() : IRequest<IReadOnlyCollection<CaptureDeviceDTO>>;
 
