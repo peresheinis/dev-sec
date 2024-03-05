@@ -9,11 +9,11 @@ internal class DeviceStatusChangedEventHandler(IDeviceRecordingManager deviceRec
 
     public Task Handle(DeviceStatusChangedEvent notification, CancellationToken cancellationToken)
     {
-        if (notification.IsEnabled)
+        if (!notification.IsEnabled)
         {
-            return _deviceRecordingManager.StartAsync(notification.Id);
+            return _deviceRecordingManager.StopAsync(notification.Id);
         }
 
-        return _deviceRecordingManager.StopAsync(notification.Id);
+        return _deviceRecordingManager.StartAsync(notification.Id);
     }
 }
