@@ -1,5 +1,7 @@
 ﻿namespace DevSec.Client.Shared;
 
-public record DeviceLocationDTO(
-    float Latitude,
-    float Longtitude);
+public class DeviceLocationDTO
+{
+    public float Latitude { get; set; }
+    public float Longtitude { get; set; }
+}

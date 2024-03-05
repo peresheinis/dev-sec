@@ -1,19 +1,14 @@
 ﻿namespace DevSec.Client.Shared;
 
-/// <param name="Name"> Название устройства </param>
-/// <param name="IsEnabled"> Флаг работы устройства. Если true, то устройство включено </param>
-/// <param name="Color"> Цвет иконки устройства </param>
-/// <param name="Location"> Локация устройства </param>
-/// <param name="Sound"> Настройки управления звуков устройства </param>
-/// <param name="Video"> Настройки управления видеокамерой устройства </param>
-/// <param name="ConfigurationId"> Идентификатор конфигурации устройства </param>
-/// <param name="Configuration"> Конфигурация устройства </param>
-public sealed record DeviceDTO(
-    string Name, 
-    bool IsEnabled, 
-    DeviceIconColorDTO? Color, 
-    DeviceLocationDTO? Location, 
-    DeviceSoundDTO? Sound, 
-    DeviceVideoDTO Video, 
-    Guid ConfigurationId,
-    DeviceConfigurationDTO Configuration);
+public class DeviceDTO
+{
+    public Guid Id { get; set; }
+    public string Name { get; set; }
+    public bool IsEnabled { get; set; }
+    public DeviceIconColorDTO? Color { get; set; }
+    public DeviceLocationDTO? Location { get; set; }
+    public DeviceSoundDTO? Sound { get; set; }
+    public DeviceVideoDTO Video { get; set; }
+    public Guid ConfigurationId { get; set; }
+    public DeviceConfigurationDTO Configuration { get; set; }
+};

@@ -1,12 +1,16 @@
 ﻿using AutoMapper;
 using DevSec.Client.Core.Entities;
 using DevSec.Client.Shared;
+using Kernel.Shared.Extensions;
 
 namespace DevSec.Client.Profiles;
 
 public class DevicesProfile : Profile
 {
     public DevicesProfile() {
+        this
+            .CreateMap<PagedList<Device>, PagedList<DeviceDTO>>();
+
         this
             .CreateMap<SoundSourceDTO, SoundSource>()
             .ReverseMap();
@@ -37,6 +41,10 @@ public class DevicesProfile : Profile
 
         this
             .CreateMap<DeviceSoundDTO, DeviceSound>()
+            .ReverseMap();
+
+        this
+            .CreateMap<Device, DeviceDTO>()
             .ReverseMap();
     }
 }

@@ -3,12 +3,15 @@ using DevSec.Client.Core.Repositories;
 using DevSec.Client.Shared;
 using Kernel.Shared.Extensions;
 using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DevSec.Client.Application.Queries;
 
 public static class GetDevices
 {
-    public record Query(int Page, int PageSize) : IRequest<PagedList<DeviceDTO>>;
+    public record Query(
+        [FromQuery] int Page,
+        [FromQuery] int PageSize) : IRequest<PagedList<DeviceDTO>>;
 
     internal sealed class QueryHandler(
         IMapper mapper,

@@ -1,6 +1,8 @@
 ﻿namespace DevSec.Client.Shared;
 
-public record DeviceConfigurationDTO(
-    bool IsCompressionEnabled,
-    bool IsNotificationsEnabled,
-    bool IsMotionRecognitionEnabled);
+public class DeviceConfigurationDTO
+{
+    public bool IsCompressionEnabled { get; set; }
+    public bool IsNotificationsEnabled { get; set; }
+    public bool IsMotionRecognitionEnabled { get; set; }
+}

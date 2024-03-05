@@ -3,6 +3,7 @@
 public sealed class Device : EntityBase<Guid>
 {
     private List<DeviceGroup> _groups;
+
     private Device() { }
 
     public Device(string name,
@@ -77,9 +78,18 @@ public sealed class Device : EntityBase<Guid>
     /// Включить / выключить трансляцию и запись устройства
     /// </summary>
     /// <param name="enabled"></param>
-    public void SetEnabled(bool enabled)
+    public bool SetStatus(bool enabled)
     {
+        var valueBeforeChanged = IsEnabled;
+
         IsEnabled = enabled;
+
+        if (valueBeforeChanged != enabled)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     /// <summary>

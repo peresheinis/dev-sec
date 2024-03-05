@@ -1,4 +1,6 @@
 ﻿namespace DevSec.Client.Shared;
 
-public record DeviceSoundDTO(
-    SoundSourceDTO Source);
+public class DeviceSoundDTO
+{
+    public SoundSourceDTO Source { get; set; }
+}

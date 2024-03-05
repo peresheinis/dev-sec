@@ -1,5 +1,7 @@
 ﻿namespace DevSec.Client.Shared;
 
-public record DeviceVideoDTO(
-    VideoSourceDTO Source,
-    VideoConfigurationDTO Configuration);
+public class DeviceVideoDTO
+{
+    public VideoSourceDTO Source { get; set; }
+    public VideoConfigurationDTO Configuration { get; set; }
+}

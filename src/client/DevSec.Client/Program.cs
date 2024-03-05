@@ -1,13 +1,8 @@
 using DevSec.Client.Application;
-using DevSec.Client.Application.Queries;
 using DevSec.Client.Application.Services;
-using DevSec.Client.Core;
-using DevSec.Client.Core.Repositories;
 using DevSec.Client.Endpoints;
 using DevSec.Client.Infrastructure;
-using DevSec.Client.Infrastructure.Repositories;
 using DevSec.Client.Profiles;
-using MicroEndpoints.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,8 +14,8 @@ builder.Services.AddScoped<IDevicesService, DevicesService>();
 
 builder.Services.AddMediator();
 builder.Services.AddDatabase();
-builder.Services.AddMicroEndpoints();
-
+builder.Services.EnableAnnotations();
+builder.Services.AddRecordingManager();
 
 builder.Services.AddAutoMapper(configuration =>
 {
@@ -29,15 +24,20 @@ builder.Services.AddAutoMapper(configuration =>
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseRouting();
 
-
-app.UseMicroEndpoints();
 app.UseAuthorization();
+
+// Enable middleware to serve generated Swagger as a JSON endpoint.
+app.UseSwagger();
+
+// Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
+app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Devices V1"));
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
 
 await app.Services
     .CreateScope().ServiceProvider

@@ -16,7 +16,11 @@ public class DeviceRepository : RepositoryBase<Device>, IDeviceRepository
         await Set.ToPagedListAsync(page, pageSize, cancellationToken);
 
     public async Task<Device?> GetByIdAsync(Guid key, CancellationToken cancellationToken = default) =>
-        await Set.SingleOrDefaultAsync(e => e.Id.Equals(key));
+        await Set
+            .Include(x => x.Configuration)
+            .Include(x => x.Sound)
+            .Include(x => x.Video)
+            .SingleOrDefaultAsync(e => e.Id.Equals(key));
 
     public void Remove(Device entity) =>
         Set.Remove(entity);
