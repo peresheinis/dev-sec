@@ -20,9 +20,7 @@ public static class DomainEventsExtensions
             .ForEach(entity => entity.Entity.ClearDomainEvents());
 
         var tasks = domainEvents
-            .Select(async (domainEvent) => {
-                await mediator.Publish(domainEvent);
-            });
+            .Select((domainEvent) => mediator.Publish(domainEvent));
 
         await Task.WhenAll(tasks);
     }
